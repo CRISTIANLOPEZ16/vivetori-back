@@ -3,9 +3,9 @@ from uuid import UUID
 
 from supabase import create_client, Client
 
-from core.errors import NotFoundError, RepositoryError
-from domain.models import TicketAnalysis
-from domain.ports import TicketRepository
+from app.core.errors import NotFoundError, RepositoryError
+from app.domain.models import TicketAnalysis
+from app.domain.ports import TicketRepository
 
 
 logger = logging.getLogger(__name__)

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 
-from api.schemas import ProcessTicketRequest, ProcessTicketResponse
-from services.ticket_processor import TicketProcessorService
-from deps import get_ticket_service
+from app.api.schemas import ProcessTicketRequest, ProcessTicketResponse
+from app.services.ticket_processor import TicketProcessorService
+from app.deps import get_ticket_service
 
 router = APIRouter()
 

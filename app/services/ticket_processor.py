@@ -1,8 +1,8 @@
 import logging
 from uuid import UUID
 
-from domain.models import TicketAnalysis
-from domain.ports import TicketClassifier, TicketRepository
+from app.domain.models import TicketAnalysis
+from app.domain.ports import TicketClassifier, TicketRepository
 
 logger = logging.getLogger(__name__)
 

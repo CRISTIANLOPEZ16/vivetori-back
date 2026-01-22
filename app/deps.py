@@ -1,9 +1,9 @@
 from functools import lru_cache
 
-from core.config import settings
-from infra.supabase_repo import SupabaseTicketRepository
-from infra.llm_classifier import LangChainTicketClassifier
-from services.ticket_processor import TicketProcessorService
+from app.core.config import settings
+from app.infra.supabase_repo import SupabaseTicketRepository
+from app.infra.llm_classifier import LangChainTicketClassifier
+from app.services.ticket_processor import TicketProcessorService
 
 
 @lru_cache(maxsize=1)

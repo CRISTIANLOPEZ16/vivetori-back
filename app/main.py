@@ -3,9 +3,9 @@ from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 
-from api.routes import router
-from core.errors import ExternalServiceError, NotFoundError, RepositoryError, ValidationError
-from core.log_config import setup_logging
+from app.api.routes import router
+from app.core.errors import ExternalServiceError, NotFoundError, RepositoryError, ValidationError
+from app.core.log_config import setup_logging
 
 load_dotenv()
 logger = logging.getLogger(__name__)
@@ -24,13 +24,13 @@ def _register_exception_handlers(app: FastAPI) -> None:
         return JSONResponse(status_code=status_code, content={"detail": str(exc)})
 
     for exc_type in _ERROR_STATUS:
-        add_exception_handler(exc_type, handler)
+        app.add_exception_handler(exc_type, handler)
 
     def unhandled_handler(request: Request, exc: Exception) -> JSONResponse:
         logger.exception("Unhandled error")
         return JSONResponse(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content={"detail": "Internal server error"})
 
-    add_exception_handler(Exception, unhandled_handler)
+    app.add_exception_handler(Exception, unhandled_handler)
 
 
 def create_app() -> FastAPI:
@@ -39,7 +39,7 @@ def create_app() -> FastAPI:
     _register_exception_handlers(app)
 
     # Mount router with dependency injection
-    include_router(
+    app.include_router(
         router,
         prefix="",
         dependencies=[],
