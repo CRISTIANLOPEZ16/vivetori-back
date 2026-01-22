@@ -1,6 +1,6 @@
 from typing import Protocol
 from uuid import UUID
-from app.domain.models import TicketAnalysis
+from domain.models import TicketAnalysis
 
 
 class TicketRepository(Protocol):

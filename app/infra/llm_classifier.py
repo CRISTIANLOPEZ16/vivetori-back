@@ -7,10 +7,10 @@ from langchain_core.exceptions import OutputParserException
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
-from app.core.config import settings
-from app.core.errors import ExternalServiceError, ValidationError
-from app.domain.models import TicketAnalysis, TicketCategory, TicketSentiment
-from app.domain.ports import TicketClassifier
+from core.config import settings
+from core.errors import ExternalServiceError, ValidationError
+from domain.models import TicketAnalysis, TicketCategory, TicketSentiment
+from domain.ports import TicketClassifier
 
 logger = logging.getLogger(__name__)
 

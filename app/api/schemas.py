@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from uuid import UUID
 
-from app.domain.models import TicketAnalysis, TicketCategory, TicketSentiment
+from domain.models import TicketAnalysis, TicketCategory, TicketSentiment
 
 
 class ProcessTicketRequest(BaseModel):
